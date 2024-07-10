@@ -1,0 +1,131 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  min-height: 500px;
+  padding: 20px;
+}
+
+.login-box {
+  background: #fff;
+  padding: 40px;
+  min-height: 500px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.login-box h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.login-box p {
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #cacaca69;
+  border-radius: 10px;
+}
+
+.login-box input[type="email"]:focus,
+.login-box input[type="password"]:focus {
+  border-color: #7baef1;
+  box-shadow: 0 0 5px rgba(108, 175, 247, 0.918);
+  outline: none;
+}
+
+.login-box button[type="submit"] {
+  padding: 15px;
+  align-self: center;
+  min-width: 240px;
+  margin-top: 45px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40px;
+}
+
+.social-icons button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .login-box {
+    padding: 30px;
+  }
+
+  .login-box input[type="email"],
+  .login-box input[type="password"] {
+    padding: 15px;
+  }
+
+  .login-box button[type="submit"] {
+    padding: 12px;
+    min-width: 200px;
+  }
+
+  .social-icons {
+    margin-left: 10px;
+    flex-direction: row;
+  }
+
+  .social-icons a {
+    margin-top: 10px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .login-box input[type="email"],
+  .login-box input[type="password"] {
+    padding: 10px;
+  }
+
+  .login-box button[type="submit"] {
+    padding: 10px;
+    min-width: 180px;
+  }
+}
