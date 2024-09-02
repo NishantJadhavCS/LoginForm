@@ -26,11 +26,7 @@ jobs:
     - name: Deploy files to server
       run: |
         rsync -avz --delete-after ./LoginForm/ ubuntu@52.66.20.249:/var/www/html/LoginForm/
-      env:
-        SSH_AUTH_SOCK: ${{ secrets.SSH_AUTH_SOCK }}
 
     - name: Restart Apache2 service
       run: |
         ssh ubuntu@52.66.20.249 "sudo systemctl restart apache2"
-      env:
-        SSH_AUTH_SOCK: ${{ secrets.SSH_AUTH_SOCK }}
