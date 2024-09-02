@@ -22,9 +22,8 @@ jobs:
       run: |
         mkdir -p ~/.ssh
         ssh-keyscan -H 52.66.20.249 > ~/.ssh/known_hosts
-        ls -la ~/.ssh
         echo "Contents of known_hosts:"
-        cat ~/.ssh/known_hosts || echo "Failed to read known_hosts
+        cat ~/.ssh/known_hosts || echo "Failed to read known_hosts"
       
     - name: Deploy files to server
       run: |
