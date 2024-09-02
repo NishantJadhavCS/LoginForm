@@ -1,0 +1,31 @@
+name: Deploy LoginForm to Apache2 Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy files to server
+      run: |
+        rsync -avz --delete-after ./LoginForm/ ubuntu@52.66.20.249:/var/www/html/LoginForm/
+      env:
+        SSH_AUTH_SOCK: ${{ secrets.SSH_AUTH_SOCK }}
+
+    - name: Restart Apache2 service
+      run: |
+        ssh ubuntu@52.66.20.249 "sudo systemctl restart apache2"
+      env:
+        SSH_AUTH_SOCK: ${{ secrets.SSH_AUTH_SOCK }}
