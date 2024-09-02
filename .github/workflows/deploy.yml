@@ -23,6 +23,10 @@ jobs:
         mkdir -p ~/.ssh
         ssh-keyscan -H 52.66.20.249 >> ~/.ssh/known_hosts
 
+    - name: List contents of directory
+      run: |
+        ls -la ./LoginForm/
+
     - name: Deploy files to server
       run: |
         rsync -avz --delete-after ./LoginForm/ ubuntu@52.66.20.249:/var/www/html/LoginForm/
