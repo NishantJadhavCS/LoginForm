@@ -13,9 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: List repository contents
-      run: ls -la
-
     - name: Set up SSH
       uses: webfactory/ssh-agent@v0.7.0
       with:
@@ -28,7 +25,7 @@ jobs:
 
     - name: Deploy files to server
       run: |
-        rsync -avz --delete-after ./ ubuntu@52.66.20.249:/var/www/html/LoginForm/
+        rsync -avz --delete-after --exclude='.git' ./ ubuntu@52.66.20.249:/var/www/html/LoginForm/
 
     - name: Restart Apache2 service
       run: |
